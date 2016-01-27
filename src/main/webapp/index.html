@@ -20,7 +20,7 @@
             localStorage.bgpt_pwd = this.get("password");
             sessionStorage.username = $("#username").val();
             sessionStorage.user = JSON.stringify(data.user);    //把登录的用户信息在客户端也保存一份
-            var sessionId = $.cookie('JSESSIONID');
+            var sessionId = $.cookie('JSESSIONID');     //设置jsessionid，两个项目共享session
             $.cookie('JSESSIONID', sessionId, {path: '/wfxxgl/'})
             showLoading();
             location.href = "welcome.html";
