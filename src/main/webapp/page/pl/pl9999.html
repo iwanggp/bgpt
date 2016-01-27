@@ -1,0 +1,35 @@
+
+
+<div class="pageHeader">
+  <form id="data_form">
+    <div class="searchBar">
+      <table class="searchContent" >
+        <tr>
+          <td width="30%">调用服务：</td>
+          <td>
+            <input type="text" id="service_code" name="service_code" size="13" class="required"/>
+          </td>
+        </tr>
+        <tr>
+          <td width="30%">
+            请求参数，key=value格式，一个参数一行：
+          </td>
+          <td>
+            <textarea id="args" name="args" rows="5" cols="60"></textarea>
+          </td>
+        </tr>
+      </table>
+      <div class="subBar">
+        <ul>
+          <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="submit">调用</button></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="pageContent">
+  <form id="res" class="sub_form" style="width: 80%;">
+    <p></p>
+  </form>
+</div>

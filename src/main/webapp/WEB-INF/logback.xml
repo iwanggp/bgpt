@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 输出到控制台 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!-- %line 为行号，会造成速度变慢，真实运营时应该删除 -->
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %logger %line ---> %m%n</pattern>
+        </layout>
+    </appender>
+
+    <!-- 输出到文件 debug -->
+    <appender name="filedebugout" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${bgpt.root}/WEB-INF/log/bgpt.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!-- %line 为行号，会造成速度变慢，真实运营时应该删除 -->
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %logger %line ---> %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 输出到文件 debug -->
+    <appender name="filewarnout" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${bgpt.root}/WEB-INF/log/bgpt.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!-- %line 为行号，会造成速度变慢，真实运营时应该删除 -->
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} %logger ---> %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- log 类的全路径 -->
+    <!--    <logger name="com.soa" additivity="false" level="debug">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="filedebugout" />
+    </logger>-->
+
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.mchange" level="WARN"/>
+    <logger name="org.apache.mail" level="ERROR"/>
+    <logger name="net.sf" level="WARN"/>
+    <logger name="net.sf.hibernate" level="ERROR"/>
+    <logger name="org.apache.commons" level="WARN"/>
+    <logger name="org.apache.catalina" level="ERROR"/>
+    <logger name="org.codehaus.xfire" level="WARN"/>
+    <logger name="org.apache.velocity" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.apache.jasper.compiler.JspRuntimeContext" level="ERROR"/>
+    <logger name="org.apache.commons.httpclient" level="WARN"/>
+    <logger name="com.opensymphony" level="WARN"/>
+    <logger name="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" level="WARN"/>
+
+    <logger name="com.lianzt.util.LogUtil" level="INFO"/>
+    <logger name="com.lianzt.util" level="WARN"/>
+    <logger name="com.lianzt.commondata" level="WARN"/>
+    <logger name="com.soa.listener.ReadGlobalArgsListener" level="INFO"/>
+    <logger name="com.soa.filter.EncodingFilter" level="INFO"/>
+    <logger name="com.soa.porxy.TaskPorxy" level="INFO"/>
+    <logger name="com.soa.service.BaseService" level="INFO"/>
+    <logger name="com.soa.service.busi.frame" level="INFO"/>
+    <logger name="com.soa.task.BaseTask" level="INFO"/>
+
+    <!-- debug begin -->
+    <logger name="com.soa.service.UtilServiceImpl" level="WARN"/>
+    <logger name="com.soa.service" level="DEBUG"/>
+    <logger name="com.soa.controller" level="DEBUG"/>
+    <logger name="com.soa.plugin" level="DEBUG"/>
+    <logger name="com.soa.listener" level="INFO"/>
+    <!--<logger name="com.soa.filter.dev.StaticFilter" level="DEBUG"/>-->
+    <logger name="com.soa.util.bgpt" level="INFO"/>
+    <!-- debug end -->
+
+    <!-- root 默认日志配置 -->
+    <root level="info">
+        <!--        <appender-ref ref="stdout" />-->
+        <!--        <appender-ref ref="jms" />-->
+        <appender-ref ref="stdout" />
+        <appender-ref ref="filedebugout" />
+        <!--        <appender-ref ref="filewarnout" />-->
+    </root>
+</configuration>

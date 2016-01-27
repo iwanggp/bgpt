@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>bgpt</display-name>
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>bgpt.root</param-value>
+    </context-param>
+    <!-- logback spring 配置 begin -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>/WEB-INF/logback.xml</param-value>
+    </context-param>
+    <!-- 初始化参数，init-service参数可指定系统启动时执行的服务，服务码用,号分隔 begin -->
+    <!--    <context-param>
+        <param-name>init-service</param-name>
+        <param-value>S10003</param-value>
+    </context-param>-->
+    <!-- 初始化参数，init-service参数可指定系统启动时执行的服务，服务码用,号分隔 end -->
+    <listener>
+        <listener-class>org.springframework.web.util.LogbackConfigListener</listener-class>
+    </listener>
+    <!-- logback spring 配置 end -->
+    <!-- 字符集 begin -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.soa.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <servlet-name>do</servlet-name>
+    </filter-mapping>
+    <!-- 字符集 end -->
+    <!-- spring配置 begin -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>com.soa.listener.ReadGlobalArgsListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>do</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>do</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!-- tomcat7 数据库连接池在/META-INF/context.xml 中配置 begin -->
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/bgptDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    <!-- tomcat7 连接池 end -->
+    <!-- spring配置 end -->
+    <!-- 开发环境的静态资源引用 begin -->
+    <filter>
+        <filter-name>StaticFilter</filter-name>
+        <init-param>
+            <param-name>prefix</param-name>
+            <param-value>http://192.168.1.108/project-min/bgpt</param-value>
+        </init-param>
+        <init-param>
+            <param-name>shared</param-name>
+            <param-value>http://192.168.1.108/shared-min</param-value>
+        </init-param>
+        <filter-class>com.soa.filter.dev.StaticFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>StaticFilter</filter-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.jpeg</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.swf</url-pattern>
+    </filter-mapping>
+    <!-- 开发环境的静态资源引用 begin -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

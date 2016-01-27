@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="shared/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <title>郑州交警支队综合办公平台 -- 用户登录</title>
+    <script src="js/global.js" type="text/javascript"></script>
+    <script src="shared/frame/frame-index.js" type="text/javascript"></script>
+    <link href="themes/alogin.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+      $(function() {
+        $("#sub").click(function() {
+          if (!checkForm('#data_form')) {
+            return false;
+          }
+          var options = new AjaxOptions("#data_form");
+          options.put("service_code", "P11000");
+          options.sus = function(data) {
+            localStorage.bgpt_user = this.get("username");
+            localStorage.bgpt_pwd = this.get("password");
+            sessionStorage.username = $("#username").val();
+            sessionStorage.user = JSON.stringify(data.user);    //把登录的用户信息在客户端也保存一份
+            var sessionId = $.cookie('JSESSIONID');
+            $.cookie('JSESSIONID', sessionId, {path: '/wfxxgl/'})
+            showLoading();
+            location.href = "welcome.html";
+          };
+          $.ajax(options);
+          return false;
+        });
+        if (localStorage.bgpt_user && localStorage.bgpt_pwd) {
+          $('#username').val(localStorage.bgpt_user);
+          $('#password').val(localStorage.bgpt_pwd);
+          $("#sub").click();
+        }
+        if ($.browser.webkit) {
+          $("#supper").hide();
+        }
+        $(":input").keydown(function(e) {
+          if (e.keyCode == 13) {
+            $("#sub").click();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="index-logo">
+      <strong>郑州交警支队综合办公平台</strong>
+    </div>
+    <form id="data_form" runat="server">
+      <div class="Main">
+        <ul>
+          <li class="top"></li>
+          <li class="top2"></li>
+          <li class="topA"></li>
+          <li class="topB"><div align="center" >
+              <img src="images/login/logo.jpg" width="282" alt="" style="" />
+            </div></li>
+          <li class="topC"></li>
+          <li class="topD">
+            <ul class="login">
+              <p id="supper" style="color: red">提示：系统检查到您使用的浏览器不是chrome内核，推荐使用专用版本chrome浏览器！
+                <a href="/">点击下载chrome</a></p>
+              <li><span class="left">用户名：</span>
+                <span style="text-align: left">
+                  <input type="text" id="username" name="username" fn="username('用户名','#username')" class="txt" />
+                </span></li>
+              <li><span class="left">密 码：</span> <span style="text-align: left">
+                  <input type="password" id="password" name="password" fn="password('密码','#password')" class="txt"/>
+                </span></li>
+              <li>
+              </li>
+            </ul>
+          </li>
+          <li class="topE"></li>
+          <li class="middle_A"></li>
+          <li class="middle_B">
+          </li>
+          <li class="middle_C">
+            <span class="btn">
+              <a id="sub" href="#this"><img alt="" src="images/login/btnlogin.gif" /></a>
+            </span>
+          </li>
+          <li class="middle_D"></li>
+          <li class="bottom_A"></li>
+          <li class="bottom_B"></li>
+        </ul>
+      </div>
+    </form>
+    <div id="index-footer">
+      <div id="index-footer-inside">
+        <p>
+          Copyright&nbsp;©&nbsp;2015&nbsp; 郑州交警支队综合办公平台 &nbsp;|&nbsp;
+          &nbsp;|&nbsp;郑州市公安交通警察巡逻支队
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

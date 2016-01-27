@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : timer.xml
+    Created on : 2013年3月26日
+    Author     : lianzt
+    Description:
+        定时任务配置文件。
+        文件中的定时器默认以天为周期，每天至少运行一次。
+
+    文档格式说明：
+        timer标签：定义一个定时任务，文档中可以有多个该标签，desc属性为定时任务的说明
+            run-time标签：该任务第一次运行的时间，内容为24小时制的时间，如 16:00；如果为空，将在服务器启动成功的10秒后运行。
+            cycle标签：任务的运行周期，内容为秒数，如果为空，第天运行一次。一天86400秒。
+            service-code标签：任务需要执行的服务，一个定时器暂时只能执行一个服务。
+            args标签：任务需要的参数，内容为 json 字符串。（暂不支持）
+            delay标签：延时 秒后开始运行，当run-time标签存在时，该属性失效
+-->
+<root>
+  <timer desc="清理异常日志">
+    <service-code>P10002</service-code>
+    <!--<args>{"day_num":10}</args>-->
+    <run-time>03:00</run-time>
+  </timer>
+</root>
