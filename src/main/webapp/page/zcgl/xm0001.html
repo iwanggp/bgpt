@@ -1,0 +1,51 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="pageHeader">
+  <form id="search-form">
+    <div class="searchBar">
+      <table class="searchContent" >
+        <tr>
+          <td width="50">
+            角色名称：
+          </td>
+          <td>
+            <input id="role_name" name="role_name" type="text"/>
+          </td>
+        </tr>
+      </table>
+      <div class="subBar">
+        <ul>
+          <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="pageContent">
+  <div class="panelBar">
+    <ul class="toolBar">
+      <li><a class="add" id="add" rel="add"><span>添加</span></a></li>
+      <li><a class="delete" id="delete" target-table="role_list"><span>删除</span></a></li>
+      <li><a class="edit" id ="edit" target-table="role_list"><span>修改</span></a></li>
+      <li><a class="icon" id ="auth" target-table="role_list"><span>角色授权</span></a></li>
+    </ul>
+  </div>
+  <table class="table" width="100%" layoutH="137" id="role_list">
+    <thead>
+      <tr>
+        <th width="140" data-key="role_id">角色编号</th>
+        <th data-key="role_name">角色名称</th>
+         <th data-key="ssbm" st-param="app_dep.gblm">所属部门</th>
+        <th data-key="create_user">创建人</th>
+        <th data-key="create_time">创建时间</th>
+        <th data-key="bz">备注</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

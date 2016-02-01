@@ -1,0 +1,34 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<div class="pageContent">
+    <div class="pageFormContent">
+        <form id="info">
+            <dl>
+                <dt>角色名称：</dt>
+                <dd><input type="text" id="role_name" name="role_name" maxlength="50" class="required"/></dd>
+            </dl> 
+            <dl>
+                <dt>所属部门：</dt>
+                <select id="ssbm" name="ssbm">
+                    <option value="0">部门管理员</option>
+                    <option value="1">普通员工</option>
+                </select>
+            </dl> 
+            <dl>
+                <dt>备注：</dt>
+                <dd>
+                    <input id="bz" name="bz"  maxlength="200" style="width:320px;"/>
+                </dd>
+            </dl>
+        </form>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="save">保存</button></div></div></li>
+            <li><div class="button"><div class="buttonContent"><button type="button" id ="close" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+</div>
