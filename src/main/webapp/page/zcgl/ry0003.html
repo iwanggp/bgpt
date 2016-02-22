@@ -10,11 +10,6 @@ and open the template in the editor.
                 <tr>
                     <td width="50">姓名：<input id="xm" name="xm" type="text"/></td>
                     <td>警号：<input id="jh" name="jh" type="text"/></td>
-                    <td width="50">管理部门：
-                    </td>
-                    <td> <ul id="dabm">
-                            <option value="">---------------全部---------------</option>
-                        </ul></td>
                 </tr>
             </table>
             <div class="subBar">
@@ -29,9 +24,9 @@ and open the template in the editor.
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" id="add" rel="add"><span>添加</span></a></li>
-            <li><a class="delete" id="delete" target-table="users"><span>删除</span></a></li>
             <li><a class="edit" id ="edit" target-table="users"><span>修改</span></a></li>
+            <li><a class="delete" id="delete" target-table="users"><span>删除</span></a></li>
+            <li><a class="add" id="rollback" target-table="users"><span>返岗</span></a></li>
             <li><a class="icon" id ="detail" target-table="users"><span>查看详情</span></a></li>
         </ul>
     </div>
@@ -40,14 +35,16 @@ and open the template in the editor.
             <tr>
                 <th data-key="jh">警号</th>
                 <th data-key="xm">姓名</th>
-                <th data-key="sfzmhm">身份证号</th>
-                <th data-key="xb">性别</th>
-                <th data-key="lrr">创建人</th>
-                <th data-key="lrsj">创建时间</th>
-                <th data-key="gzdd" >工作调动</th>
-                <th data-key="ryzt" st-param="zcgl_ry.ryzt">状态</th>
-                <th data-key="role_name">角色</th>
+                <th data-key="ddsy">调动事由</th>
+                <th data-key="yxbm" st-param="zcgl_ry.dabm">原先部门</th>
+                <th data-key="ddbm" st-param="zcgl_ry.dabm">调动后的部门</th>
+                <th data-key="ddsj" date-format="yyyy-MM-dd">调动时间</th>
+                <th data-key="fgsj" date-format="yyyy-MM-dd">返岗时间</th>
+                <th data-key="ddzt" st-param="zcgl_ry_dd.ddzt">状态</th>
                 <th data-key="bz">备注</th>
+                <th data-key="lrr">创建人</th>
+                <th data-key="lrrxm">创建人姓名</th>
+                <th data-key="lrsj" date-format="yyyy-MM-dd">创建时间</th>
             </tr>
         </thead>
         <tbody>

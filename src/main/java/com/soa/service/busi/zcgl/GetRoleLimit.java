@@ -12,12 +12,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
- * 获取角色权限
- * S21005
+ * 获取角色权限 S21005
+ *
  * @author wanggp
  */
 @Service
-public class GetRoleLimit extends BaseService{
+public class GetRoleLimit extends BaseService {
 
     private final String[] KEY = new String[]{"role_id", "角色编号"};
 
@@ -28,15 +28,16 @@ public class GetRoleLimit extends BaseService{
 
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead,
-                            AbstractCommonData out, AbstractCommonData outHead) {
+            AbstractCommonData out, AbstractCommonData outHead) {
         List<AbstractCommonData> limitList = queryList("get_all_menus_pl");
         for (AbstractCommonData acd : limitList) {
             if ("1".equals(acd.getStringValue("m_type"))) {     //给所有目录项增加一个子节点数组
                 acd.putArrayValue("chidren", new LinkedList<AbstractCommonData>());
             }
         }
-        out.putArrayValue("all_menu", GetUserAllLimitPl.marge(limitList));
+        out.putArrayValue("all_menu", GetUserAllLimitPl.marge(limitList));//将所有的菜单合并过来
         limitList = queryList("get_role_limit_pl", in.getStringValue("role_id"));
+        System.out.println(in.getStringValue("role_id") + "--------<><><<>><");
         out.putArrayValue("role_limit", limitList);
     }
 

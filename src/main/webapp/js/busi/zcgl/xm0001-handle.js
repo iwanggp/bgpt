@@ -3,7 +3,7 @@
     var jsonStr = sessionStorage.xm0001_detail;
     var role_id='';
     sessionStorage.removeItem("xm0001_detail");
-    initParaSelect('app_dep.gblm', $('#ssbm', $page));
+    initParaSelect('app_dep.glbm', $('#ssbm', $page));
     if (jsonStr) {
         var data = JSON.parse(jsonStr);
         role_id=data['role_id'];

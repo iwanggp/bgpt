@@ -1,0 +1,53 @@
+
+<form id="pagerForm" action="page/search/getbzdz.html">
+    <!--    <input type="hidden" name="pageNum" value="1" />
+        <input type="hidden" name="numPerPage" value="${model.numPerPage}" />
+        <input type="hidden" name="orderField" value="${param.orderField}" />
+        <input type="hidden" name="orderDirection" value="${param.orderDirection}" />-->
+</form>
+
+<div class="pageHeader">
+    <form rel="pagerForm" method="post" action="page/search/getbzdz.html" onsubmit="return dwzSearch(this, 'dialog');">
+        <div class="searchBar">
+            <form id="search-form">
+                <table class="searchContent" width="60%">
+                    <tr>
+                        <!--                    <td width="20%">
+                                                行政区名称
+                                                <select id="xzqhdm" name="xzqhdm">
+                                                    <option value="">全部</option>
+                                                </select>
+                                            </td>-->
+                        <td width="20%">
+                            管理编码：
+                            <input id="glbm" name="glbm">
+                            </input>
+                        </td>
+                        <td width="25%">
+                            部门名称关键字：
+                            <input id="bmqc" name="bmqc" type="text" size="20"/>
+                        </td>
+                        <td width="25%">
+                            <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" layoutH="108" targetType="dialog" width="100%" id="dabm">
+        <thead>
+            <tr>
+                <th data-key="glbm">管理部门</th>
+                <th data-key="bmmc">部门名称</th>
+                <th data-key="bmqc">部门全称</th>
+                <th data-key="name_link" id="xq">详情</th>
+                <th data-key="find_fetch" id="czdh">带回</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

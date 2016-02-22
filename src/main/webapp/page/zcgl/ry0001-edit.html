@@ -1,0 +1,126 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<div class="pageContent">
+    <div class="pageFormContent">
+        <form id="ry">
+            <dl>
+                <dt>警号：</dt>
+                <dd><input type="text" id="jh" name="jh" maxlength="6" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>姓名：</dt>
+                <dd><input type="text" id="xm" name="xm" maxlength="20" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>性别：</dt>
+                <dd>
+                    <select id="xb" name="xb">
+                        <option value="男" selected="selected">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>身份证明号码：</dt>
+                <dd><input type="text" id="sfzmhm" name="sfzmhm" maxlength="18" minlength="15" class="required" /></dd>
+            </dl>
+            <dl>
+                <dt>角色：</dt>
+                <dd>
+                    <select style="width:100px;" class="combox" id="role_id" name="role_id">
+<!--                        <option value="0001">普通警员</option>-->
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>档案部门：</dt>
+                <dd>
+                    <input class="required" id="dabm" name="obj.orgName"  type="text" size="25"/>
+                    <a class="btnLook" href="page/zcgl/getdabm.html" lookupGroup="obj" lookupPk="id">查找档案部门</a>	
+                    <input id="_dabm" style="visibility: hidden" name="obj.glbm"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>在岗部门：</dt>
+                <dd>
+                    <input class="required" id="zgbm" name="obj.orgName1" type="text" size="25"/>
+                    <a class="btnLook" href="page/zcgl/getdabm1.html" lookupGroup="obj" lookupPk="id">查找在岗部门</a>	
+                    <input id="_zgbm" style="visibility: hidden" name="obj.glbm1"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>联系电话：</dt>
+                <dd><input type="text" id="lxdh" name="lxdh" maxlength="12" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>参加工作时间：</dt>
+                <dd><input type="text" id="cjgzsj" name="cjgzsj" class="date" date-format="yyyy-MM-dd"   /></dd>
+            </dl>
+            <dl>
+                <dt>政治面貌：</dt>
+                <dd>
+                    <select style="width:100px;" class="combox" id="zzmm" name="zzmm">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>银行卡号：</dt>
+                <dd><input type="text" id="yhkh" name="yhkh" maxlength="30" /></dd>
+            </dl>
+            <dl>
+                <dt>开户行：</dt>
+                <dd>
+                    <select id="khh" name="khh">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>工作种类：</dt>
+                <dd>
+                    <select id="gzzl" name="gzzl">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>父亲姓名：</dt>
+                <dd><input type="text" id="fqxm" name="fqxm" maxlength="30"/></dd>
+            </dl>
+            <dl>
+                <dt>父亲联系电话：</dt>
+                <dd><input type="text" id="fqlxdh" name="fqlxdh" maxlength="20"/></dd>
+            </dl>
+            <dl>
+                <dt>母亲姓名：</dt>
+                <dd><input type="text" id="mqxm" name="mqxm" maxlength="30"/></dd>
+            </dl>
+            <dl>
+                <dt>母亲联系电话：</dt>
+                <dd><input type="text" id="mqlxdh" name="mqlxdh" maxlength="20"/></dd>
+            </dl>
+            <dl>
+                <dt>家庭住址：</dt>
+                <dd><input type="text" id="jtzz" name="jtzz" maxlength="200"/></dd>
+            </dl>
+            <dl>
+                <dt>人员状态：</dt>
+                <dd>
+                    <select id="ryzt" name="ryzt">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>备注：</dt>
+                <dd><input type="text" id="bz" name="bz" maxlength="200" size="50"/></dd>
+            </dl>
+        </form>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="save">保存</button></div></div></li>
+            <li><div class="button"><div class="buttonContent"><button type="button" id ="close" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+</div>

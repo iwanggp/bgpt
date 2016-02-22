@@ -1,8 +1,11 @@
 insert into ST_BGPT_BEAN(service_code,bean_name,service_desc,is_login,module) values('S21001','cutRolePl','获取角色','Y','pl')
 insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb)
-values ('zcgl01','人员管理','','人员管理','1','zcgl','1');
+values ('rygl','人员管理','','人员管理','1','zcgl','1');
 insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb)
-values ('ry0001','人员信息管理','zcgl/ry0001','人员信息管理','0','zcgl01','1');
+values ('ry0001','人员信息管理','zcgl/ry0001','人员信息管理','0','rygl','1');
+insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb)
+values ('ry0002','警员查询','zcgl/ry0002','警员查询','0','rygl','1');
+insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb) values ('ry0003','警员调动','zcgl/ry0003','警员调动','0','rygl','1');
 insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb)
 values ('zcgl02','物资管理','','物资管理','1','zcgl','1');
 insert into APP_MENU (m_id, m_name, m_url, m_title, m_type, m_super, xtbb)

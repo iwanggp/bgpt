@@ -34,14 +34,6 @@ public class DelRoleZcgl extends BaseService {
         if (acd != null && !"0".equals(acd.getStringValue("c"))) {
             throw new GlobalException(100043);        //该角色已分配权限，不能删除
         }
-//        acd = queryData("check_role_busi_pl", in);
-//        if (acd != null && !"0".equals(acd.getStringValue("c"))) {
-//            throw new GlobalException(100045);        //该角色存在负责业务，不能删除
-//        }
-//        acd = queryData("check_role_limit_wx_pl", in);
-//        if (acd != null && !"0".equals(acd.getStringValue("c"))) {
-//            throw new GlobalException(100044);        //该角色已分配微信访问权限，不能删除
-//        }
         update("del_role_pl", in);
     }
 }

@@ -1,0 +1,57 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<div class="pageContent">
+    <div class="pageFormContent">
+        <form id="ry">
+            <dl>
+                <dt>警号：</dt>
+                <dd><input type="text" id="jh" name="jh" maxlength="6" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>姓名：</dt>
+                <dd><input type="text" id="xm" name="xm" maxlength="20" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>原先部门：</dt>
+                <dd>
+                    <select style="width:220px;"id="yxbm" name="yxbm">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>调动到部门：</dt>
+                <dd>
+                    <input class="required" id="dabm" name="obj.orgName"  type="text" size="25"/>
+                    <a class="btnLook" href="page/zcgl/getdabm.html" lookupGroup="obj" lookupPk="id">查找档案部门</a>	
+                    <input id="_dabm" style="visibility: hidden" name="obj.glbm"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>调动事由：</dt>
+                <dd><input type="text" id="ddsy" name="ddsy"  class="required" size="80"/></dd>
+            </dl>
+            <dl></dl>
+            <dl>
+                <dt>调动时间：</dt>
+                <dd><input id="ddsj" name="ddsj"  class="date" /></dd>
+            </dl>
+            <dl>
+                <dt>返岗时间：</dt>
+                <dd><input  id="fgsj" name="fgsj" class="date" /></dd>
+            </dl>
+            <dl>
+                <dt>备注：</dt>
+                <dd><input type="text" id="bz" name="bz" maxlength="200" size="50"/></dd>
+            </dl>
+        </form>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">保存</button></div></div></li>
+            <li><div class="button"><div class="buttonContent"><button type="button" id ="close" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+</div>
